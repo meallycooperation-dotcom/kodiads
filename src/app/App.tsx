@@ -3,6 +3,7 @@ import type { ReactElement } from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import ApartmentsPage from '../features/apartments/pages/ApartmentsPage'
 import DashboardPage from '../features/dashboard/pages/DashboardPage'
+import EarningsPage from '../features/earnings/pages/EarningsPage'
 import LoginPage from '../features/auth/pages/LoginPage'
 import ProfilePage from '../features/profiles/pages/ProfilePage'
 import SubscriptionsPage from '../features/subscriptions/pages/SubscriptionsPage'
@@ -35,6 +36,7 @@ const App = () => (
             }
           >
             <Route index element={<DashboardPage />} />
+            <Route path="earnings" element={<EarningsPage />} />
             <Route path="apartments" element={<ApartmentsPage />} />
             <Route path="subscriptions" element={<SubscriptionsPage />} />
             <Route path="transactions" element={<TransactionsPage />} />
