@@ -10,6 +10,7 @@ import TransactionsPage from '../features/transactions/pages/TransactionsPage'
 import AuthProvider from './providers/AuthProvider'
 import ThemeProvider from './providers/ThemeProvider'
 import DashboardLayout from '../components/layout/DashboardLayout'
+import RedirectPage from './pages/RedirectPage'
 
 const ProtectedRoute = ({ children }: { children: ReactElement }) => {
   const { isAuthenticated } = useAuth()
@@ -38,8 +39,9 @@ const App = () => (
             <Route path="subscriptions" element={<SubscriptionsPage />} />
             <Route path="transactions" element={<TransactionsPage />} />
             <Route path="profiles" element={<ProfilePage />} />
+            <Route path="*" element={<RedirectPage />} />
           </Route>
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<RedirectPage />} />
         </Routes>
       </ThemeProvider>
     </AuthProvider>
