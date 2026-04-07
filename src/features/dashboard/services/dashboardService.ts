@@ -18,7 +18,7 @@ const countRows = async (table: string): Promise<number> => {
 
 const fetchLatest = async <T>(table: string, limit = 5): Promise<T[]> => {
   const { data, error } = await supabaseClient
-    .from<T>(table)
+    .from(table)
     .select('*')
     .order('created_at', { ascending: false })
     .limit(limit)
@@ -27,7 +27,7 @@ const fetchLatest = async <T>(table: string, limit = 5): Promise<T[]> => {
     throw error
   }
 
-  return data ?? []
+  return (data ?? []) as T[]
 }
 
 export const fetchDashboardSnapshot = async (): Promise<DashboardSnapshot> => {

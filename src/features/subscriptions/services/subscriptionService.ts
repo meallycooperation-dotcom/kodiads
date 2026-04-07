@@ -7,7 +7,7 @@ type SupabaseSubscription = Subscription & {
 
 export const fetchSubscriptions = async (): Promise<Subscription[]> => {
   const { data, error } = await supabaseClient
-    .from<SupabaseSubscription>('subscriptions')
+    .from('subscriptions')
     .select('*, profiles!inner(id,full_name)')
     .order('created_at', { ascending: false })
 

@@ -1,4 +1,5 @@
 import { useAuth } from '../features/auth/hooks/useAuth'
+import type { ReactElement } from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import ApartmentsPage from '../features/apartments/pages/ApartmentsPage'
 import DashboardPage from '../features/dashboard/pages/DashboardPage'
@@ -10,7 +11,7 @@ import AuthProvider from './providers/AuthProvider'
 import ThemeProvider from './providers/ThemeProvider'
 import DashboardLayout from '../components/layout/DashboardLayout'
 
-const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
+const ProtectedRoute = ({ children }: { children: ReactElement }) => {
   const { isAuthenticated } = useAuth()
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />

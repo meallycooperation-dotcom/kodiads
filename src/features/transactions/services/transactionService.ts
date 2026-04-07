@@ -8,7 +8,7 @@ type ProfileRef = {
 
 export const fetchTransactions = async (): Promise<Transaction[]> => {
   const { data, error } = await supabaseClient
-    .from<Transaction>('transactions')
+    .from('transactions')
     .select('*')
     .order('created_at', { ascending: false })
 
@@ -24,7 +24,7 @@ export const fetchTransactions = async (): Promise<Transaction[]> => {
   const nameMap = new Map<string, string | null>()
   if (userIds.length > 0) {
     const { data: profileData, error: profileError } = await supabaseClient
-      .from<ProfileRef>('profiles')
+      .from('profiles')
       .select('id,full_name')
       .in('id', userIds)
 
