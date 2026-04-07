@@ -1,11 +1,6 @@
 import { supabaseClient } from '../../../lib/supabaseClient'
 import type { Transaction } from '../types'
 
-type ProfileRef = {
-  id: string
-  full_name?: string | null
-}
-
 export const fetchTransactions = async (): Promise<Transaction[]> => {
   const { data, error } = await supabaseClient
     .from('transactions')
