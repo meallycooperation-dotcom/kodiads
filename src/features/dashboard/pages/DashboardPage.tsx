@@ -44,7 +44,7 @@ const DashboardPage = () => {
         <p className="text-sm uppercase tracking-[0.3em] text-slate-500">Overview</p>
         <h1 className="text-3xl font-semibold text-slate-900">Dashboard</h1>
         <p className="text-sm text-slate-500">
-          High-level metrics pulled straight from your Supabase tables.
+          High-level metrics.
         </p>
       </header>
 

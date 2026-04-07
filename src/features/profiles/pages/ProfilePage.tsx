@@ -42,7 +42,7 @@ const ProfilePage = () => {
         <p className="text-sm uppercase tracking-[0.3em] text-slate-500">Profiles</p>
         <h1 className="text-3xl font-semibold text-slate-900">Team</h1>
         <p className="text-sm text-slate-500">
-          Admin and user profiles recorded in Supabase, sourced from the `profiles` table.
+          Admin profiles .
         </p>
       </header>
 

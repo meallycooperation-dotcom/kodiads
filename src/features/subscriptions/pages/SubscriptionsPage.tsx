@@ -43,7 +43,7 @@ const SubscriptionsPage = () => {
         <p className="text-sm uppercase tracking-[0.3em] text-slate-500">Plans</p>
         <h1 className="text-3xl font-semibold text-slate-900">Subscriptions</h1>
         <p className="text-sm text-slate-500">
-          The current subscription records maintained in Supabase.
+          The current subscription records.
         </p>
       </header>
 

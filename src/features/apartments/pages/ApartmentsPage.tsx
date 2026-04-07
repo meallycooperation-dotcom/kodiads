@@ -42,7 +42,7 @@ const ApartmentsPage = () => {
         <p className="text-sm uppercase tracking-[0.3em] text-slate-500">Properties</p>
         <h1 className="text-3xl font-semibold text-slate-900">Apartments</h1>
         <p className="text-sm text-slate-500">
-          All apartment records stored in Supabase (most recent first).
+          All apartment records stored reported back.
         </p>
       </header>
 

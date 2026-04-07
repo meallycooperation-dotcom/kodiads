@@ -49,7 +49,7 @@ const EarningsPage = () => {
         <p className="text-sm uppercase tracking-[0.3em] text-slate-500">Earnings</p>
         <h1 className="text-3xl font-semibold text-slate-900">Revenue</h1>
         <p className="text-sm text-slate-500">
-          Total successful transactions calculated from the payments table.
+          Total successful transactions.
         </p>
       </header>
 

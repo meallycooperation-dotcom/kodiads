@@ -42,7 +42,7 @@ const TransactionsPage = () => {
       <header className="space-y-2">
         <p className="text-sm uppercase tracking-[0.3em] text-slate-500">Payments</p>
         <h1 className="text-3xl font-semibold text-slate-900">Transactions</h1>
-        <p className="text-sm text-slate-500">Latest activity across the payments table.</p>
+        <p className="text-sm text-slate-500">Latest activity across system.</p>
       </header>
 
       {error && (
