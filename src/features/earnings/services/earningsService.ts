@@ -1,6 +1,5 @@
 import { supabaseClient } from '../../../lib/supabaseClient'
-import type { Transaction } from '../../transactions/types'
-import type { EarningsSummary } from '../types'
+import type { EarningsSummary, EarningsTransaction } from '../types'
 
 const toNumber = (value: unknown) => {
   const parsed = Number(value)
@@ -10,12 +9,12 @@ const toNumber = (value: unknown) => {
 export const fetchEarningsSummary = async (): Promise<EarningsSummary> => {
   const [summaryResult, recentResult] = await Promise.all([
     supabaseClient
-      .from<Transaction>('transactions')
+      .from('transactions')
       .select('amount,status')
       .eq('status', 'success'),
     supabaseClient
-      .from<Transaction>('transactions')
-      .select('payment_reference,amount,currency,paid_at,status')
+      .from('transactions')
+      .select('payment_reference,amount,currency,paid_at,created_at,status')
       .eq('status', 'success')
       .order('paid_at', { ascending: false })
       .limit(5),
@@ -43,6 +42,6 @@ export const fetchEarningsSummary = async (): Promise<EarningsSummary> => {
   return {
     totalEarned,
     currency,
-    recentTransactions: recentData ?? [],
+    recentTransactions: (recentData ?? []) as EarningsTransaction[],
   }
 }

@@ -37,9 +37,11 @@ const EarningsPage = () => {
     }
   }, [])
 
+  const recentTransactions = summary?.recentTransactions ?? []
   const total = summary
     ? formatCurrency(summary.totalEarned, summary.currency)
     : formatCurrency(null)
+  const currency = summary?.currency ?? 'KES'
 
   return (
     <div className="space-y-6">
@@ -55,9 +57,9 @@ const EarningsPage = () => {
         <article className="flex-1 rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm">
           <p className="text-xs uppercase tracking-[0.3em] text-slate-500">Total earned</p>
           <p className="mt-1 text-4xl font-semibold text-slate-900">{total}</p>
-          <p className="text-sm text-slate-500">
-            {loading ? 'Refreshing…' : `${summary?.recentTransactions.length ?? 0} recent successes`}
-          </p>
+              <p className="text-sm text-slate-500">
+                {loading ? 'Refreshing…' : `${recentTransactions.length} recent successes`}
+              </p>
         </article>
       </div>
 
@@ -84,20 +86,20 @@ const EarningsPage = () => {
                     Loading earnings…
                   </td>
                 </tr>
-              ) : summary?.recentTransactions.length === 0 ? (
+              ) : recentTransactions.length === 0 ? (
                 <tr>
                   <td colSpan={3} className="px-4 py-6 text-center text-slate-500">
                     No successful transactions yet
                   </td>
                 </tr>
               ) : (
-                summary.recentTransactions.map((transaction) => (
+                recentTransactions.map((transaction) => (
                   <tr key={transaction.payment_reference}>
                     <td className="px-4 py-4 font-semibold text-slate-900">
                       {transaction.payment_reference}
                     </td>
                     <td className="px-4 py-4 text-slate-700">
-                      {formatCurrency(transaction.amount, transaction.currency ?? summary.currency)}
+                      {formatCurrency(transaction.amount, transaction.currency ?? currency)}
                     </td>
                     <td className="px-4 py-4 text-slate-500">
                       {formatDate(transaction.paid_at ?? transaction.created_at)}
